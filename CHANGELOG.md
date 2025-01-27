@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.3] - 2025-01-27
+
+* Fix ImportError: lxml.html.clean module is now a separate project lxml_html_clean.
+
 ## [2.0.2] - 2024-07-17
 
 * Fix for py312: Use LooseVersion from looseversion instead of distutils.
