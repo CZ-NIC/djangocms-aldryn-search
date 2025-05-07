@@ -5,15 +5,15 @@ from aldryn_search import __version__
 
 
 REQUIREMENTS = [
-    'lxml',
-    'lxml_html_clean',
-    'django-appconf',
-    'django-cms',
-    'django-haystack',
-    'django-spurl',
-    'django-standard-form',
-    'djangocms-aldryn-common',
-    'looseversion',
+    'lxml~=5.3',
+    'lxml_html_clean~=0.4',
+    'django-appconf~=1.1',
+    'django-cms~=4.1',
+    'django-haystack~=3.3',
+    'django-spurl~=0.6',
+    'django-standard-form~=1.1',
+    'djangocms-aldryn-common~=2.0',
+    'looseversion~=1.3',
 ]
 
 
