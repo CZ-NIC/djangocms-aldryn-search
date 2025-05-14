@@ -1,12 +1,16 @@
+from django.contrib.auth import get_user_model
 from django.template import engines
 from django.test import TestCase
 
-from cms.api import add_plugin, create_page
+from cms.api import add_plugin
+from cms.api import create_page as cms_create_page
 from cms.models import CMSPlugin, PageContent
 from cms.models.placeholdermodel import Placeholder
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 
+from djangocms_versioning.constants import PUBLISHED
+from djangocms_versioning.models import Version
 from haystack import connections
 from haystack.constants import DEFAULT_ALIAS
 from haystack.query import SearchQuerySet  # noqa
@@ -19,6 +23,14 @@ def template_from_string(value):
     """Create an engine-specific template based on provided string.
     """
     return engines.all()[0].from_string(value)
+
+
+def create_page(title, template, language, **kwargs):
+    page = cms_create_page(title, template, language, **kwargs)
+    content = PageContent.admin_manager.get(page=page)
+    user, _ = get_user_model().objects.get_or_create(username="tester")
+    Version.objects.create(content=content, created_by=user, state=PUBLISHED)
+    return page
 
 
 class FakeTemplateLoader(object):
