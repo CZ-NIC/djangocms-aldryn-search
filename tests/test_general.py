@@ -57,8 +57,6 @@ plugin_pool.register_plugin(HiddenPlugin)
 
 
 class BaseTestCase(TestCase):
-    def setUp(self):
-        pass
 
     def get_title_index(self):
         search_conn = connections[DEFAULT_ALIAS]
