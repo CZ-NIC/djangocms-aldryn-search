@@ -66,6 +66,7 @@ HELPER_SETTINGS = {
             'include': ['hidden_content'],
         }
     },
+    "CMS_CONFIRM_VERSION4": True,
 }
 
 
