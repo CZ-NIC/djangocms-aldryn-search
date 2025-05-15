@@ -4,7 +4,7 @@ from cms.models import CMSPlugin, PageContent
 
 from djangocms_versioning.constants import PUBLISHED
 
-from .compat import GTE_CMS_35
+from .compat import GTE_CMS_35, GTE_CMS_50
 from .conf import settings
 from .helpers import get_plugin_index_data
 from .utils import clean_join, get_index_base, strip_tags
@@ -27,7 +27,7 @@ class TitleIndex(get_index_base()):
         return obj.page.login_required
 
     def prepare_site_id(self, obj):
-        if not GTE_CMS_35:
+        if not GTE_CMS_35 or GTE_CMS_50:
             return obj.page.site_id
         return obj.page.node.site_id
 
@@ -144,7 +144,7 @@ class TitleIndex(get_index_base()):
             Q(redirect__exact='') | Q(redirect__isnull=True),
             language=language
         ).select_related('page')
-        if GTE_CMS_35:
+        if GTE_CMS_35 and not GTE_CMS_50:
             queryset = queryset.select_related('page__node')
         return queryset.distinct()
 
