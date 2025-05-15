@@ -7,7 +7,7 @@ from aldryn_search import __version__
 REQUIREMENTS = [
     'lxml~=5.3',
     'lxml_html_clean~=0.4',
-    'django-appconf~=1.1',
+    'django-appconf',
     'django-cms~=5.0',
     'djangocms-versioning~=2.2',
     'django-haystack~=3.3',
