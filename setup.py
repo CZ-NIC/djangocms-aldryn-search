@@ -8,7 +8,7 @@ REQUIREMENTS = [
     'lxml~=5.3',
     'lxml_html_clean~=0.4',
     'django-appconf',
-    'django-cms~=5.0',
+    'django-cms~=4.1',
     'djangocms-versioning~=2.2',
     'django-haystack~=3.3',
     'django-spurl~=0.6',
