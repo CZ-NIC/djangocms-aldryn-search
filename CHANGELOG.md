@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 2025-06-05
+
+- Upgrade to python >= 3.10 and django-cms 4.1.
+
 ## [2.0.3] - 2025-01-27
 
 * Fix ImportError: lxml.html.clean module is now a separate project lxml_html_clean.
@@ -173,7 +177,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.3] - 2013-11-11
 ## [0.1.2] - 2013-08-07
 
-[unreleased]: https://github.com/CZ-NIC/djangocms-aldryn-search/compare/2.0.1...master
+[unreleased]: https://github.com/CZ-NIC/djangocms-aldryn-search/compare/3.0.0...master
+[3.0.0]: https://github.com/CZ-NIC/djangocms-aldryn-search/compare/2.0.1...3.0.0
 [2.0.1]: https://github.com/CZ-NIC/djangocms-aldryn-search/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/CZ-NIC/djangocms-aldryn-search/compare/1.1.0...2.0.0
 [1.1.0]: https://github.com/divio/aldryn-search/compare/1.0.1...1.1.0
