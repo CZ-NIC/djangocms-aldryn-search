@@ -32,6 +32,7 @@ HELPER_SETTINGS = {
         ('test.html', 'Normal page2'),
     ),
     'ALLOWED_HOSTS': ['localhost'],
+    'INSTALLED_APPS': ['djangocms_versioning'],
     'CMS_LANGUAGES': {1: [{'code': 'en', 'name': 'English'}]},
     'LANGUAGES': (('en', 'English'),),
     'LANGUAGE_CODE': 'en',
@@ -66,6 +67,7 @@ HELPER_SETTINGS = {
             'include': ['hidden_content'],
         }
     },
+    "CMS_CONFIRM_VERSION4": True,
 }
 
 

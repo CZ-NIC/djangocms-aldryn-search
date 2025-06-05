@@ -21,7 +21,7 @@ class MigrationTestCase(TestCase):
         }
 
         try:
-            call_command('makemigrations', **options)
+            call_command('makemigrations', 'aldryn_search', **options)
         except SystemExit as e:
             status_code = text_type(e)
         else:

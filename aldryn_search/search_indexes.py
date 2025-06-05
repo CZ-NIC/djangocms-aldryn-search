@@ -1,9 +1,10 @@
 from django.db.models import Q
-from django.utils import timezone
 
-from cms.models import CMSPlugin, Title
+from cms.models import CMSPlugin, PageContent
 
-from .compat import GTE_CMS_35
+from djangocms_versioning.constants import PUBLISHED
+
+from .compat import GTE_CMS_35, GTE_CMS_50
 from .conf import settings
 from .helpers import get_plugin_index_data
 from .utils import clean_join, get_index_base, strip_tags
@@ -20,13 +21,13 @@ class TitleIndex(get_index_base()):
     haystack_use_for_indexing = settings.ALDRYN_SEARCH_CMS_PAGE
 
     def prepare_pub_date(self, obj):
-        return obj.page.publication_date
+        return obj.versions.first().modified
 
     def prepare_login_required(self, obj):
         return obj.page.login_required
 
     def prepare_site_id(self, obj):
-        if not GTE_CMS_35:
+        if not GTE_CMS_35 or GTE_CMS_50:
             return obj.page.site_id
         return obj.page.node.site_id
 
@@ -105,7 +106,8 @@ class TitleIndex(get_index_base()):
                 kwargs['slot__in'] = diff
             else:
                 args.append(~Q(slot__in=excluded))
-        return page.placeholders.filter(*args, **kwargs)
+        placeholders = page.get_placeholders(page.languages)
+        return placeholders.filter(*args, **kwargs)
 
     def get_search_data(self, obj, language, request):
         current_page = obj.page
@@ -134,16 +136,15 @@ class TitleIndex(get_index_base()):
         return clean_join(' ', plugin_content_bits)
 
     def get_model(self):
-        return Title
+        return PageContent
 
     def get_index_queryset(self, language):
-        queryset = Title.objects.public().filter(
-            Q(page__publication_date__lt=timezone.now()) | Q(page__publication_date__isnull=True),
-            Q(page__publication_end_date__gte=timezone.now()) | Q(page__publication_end_date__isnull=True),
+        queryset = PageContent.objects.filter(
+            Q(versions__state=PUBLISHED),
             Q(redirect__exact='') | Q(redirect__isnull=True),
             language=language
         ).select_related('page')
-        if GTE_CMS_35:
+        if GTE_CMS_35 and not GTE_CMS_50:
             queryset = queryset.select_related('page__node')
         return queryset.distinct()
 
