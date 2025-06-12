@@ -1,6 +1,6 @@
 from django.db.models import Q
 
-from cms.models import CMSPlugin, PageContent
+from cms.models import CMSPlugin, PageContent, Placeholder
 
 from djangocms_versioning.constants import PUBLISHED
 
@@ -106,7 +106,9 @@ class TitleIndex(get_index_base()):
                 kwargs['slot__in'] = diff
             else:
                 args.append(~Q(slot__in=excluded))
-        placeholders = page.get_placeholders(page.languages)
+        placeholders = Placeholder.objects.none()
+        for language in page.get_languages():
+            placeholders |= page.get_placeholders(language)
         return placeholders.filter(*args, **kwargs)
 
     def get_search_data(self, obj, language, request):

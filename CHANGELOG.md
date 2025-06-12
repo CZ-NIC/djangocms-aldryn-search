@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.1] - 2025-06-12
+
+- Fix function get_page_placeholders.
+
 ## [3.0.0] - 2025-06-05
 
 - Upgrade to python >= 3.10 and django-cms 4.1.
