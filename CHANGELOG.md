@@ -7,22 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+
+## [3.0.2] - 2025-09-16
+
+- Fix PageContent.DoesNotExist in search_indexes TtitleIndex.get_page_placeholders.
+
+
 ## [3.0.1] - 2025-06-12
 
 - Fix function get_page_placeholders.
+
 
 ## [3.0.0] - 2025-06-05
 
 - Upgrade to python >= 3.10 and django-cms 4.1.
 
+
 ## [2.0.3] - 2025-01-27
 
 * Fix ImportError: lxml.html.clean module is now a separate project lxml_html_clean.
+
 
 ## [2.0.2] - 2024-07-17
 
 * Fix for py312: Use LooseVersion from looseversion instead of distutils.
 * Fix tag links in CHANGELOG.
+
 
 ## [2.0.1] - 2023-10-16
 
@@ -30,9 +40,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - AccordionItemRenderMixin.render in djangocms_frontend/contrib/accordion/frameworks/bootstrap5.py.
   - TabItemRenderMixin.render in djangocms_frontend/contrib/tabs/frameworks/bootstrap5.py.
 
+
 ## [2.0.0] - 2023-07-18
 
 * Update code to python >= 3.7 and Django > 3.2.
+
 
 ## [1.1.0] - 2020-02-20
 
@@ -181,7 +193,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.3] - 2013-11-11
 ## [0.1.2] - 2013-08-07
 
-[unreleased]: https://github.com/CZ-NIC/djangocms-aldryn-search/compare/3.0.1...master
+
+[unreleased]: https://github.com/CZ-NIC/djangocms-aldryn-search/compare/3.0.2...master
+[3.0.2]: https://github.com/CZ-NIC/djangocms-aldryn-search/compare/3.0.1...3.0.2
 [3.0.1]: https://github.com/CZ-NIC/djangocms-aldryn-search/compare/3.0.0...3.0.1
 [3.0.0]: https://github.com/CZ-NIC/djangocms-aldryn-search/compare/2.0.3...3.0.0
 [2.0.3]: https://github.com/CZ-NIC/djangocms-aldryn-search/compare/2.0.2...2.0.3

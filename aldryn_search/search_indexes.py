@@ -108,7 +108,10 @@ class TitleIndex(get_index_base()):
                 args.append(~Q(slot__in=excluded))
         placeholders = Placeholder.objects.none()
         for language in page.get_languages():
-            placeholders |= page.get_placeholders(language)
+            try:
+                placeholders |= page.get_placeholders(language)
+            except PageContent.DoesNotExist:
+                pass
         return placeholders.filter(*args, **kwargs)
 
     def get_search_data(self, obj, language, request):
