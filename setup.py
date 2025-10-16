@@ -5,11 +5,11 @@ from aldryn_search import __version__
 
 
 REQUIREMENTS = [
-    'lxml~=5.3',
+    'lxml~=6.0',
     'lxml-html-clean~=0.4',
     'django-appconf~=1.1',
-    'django-cms~=4.1',
-    'djangocms-versioning~=2.3',
+    'django-cms>=4.1,<6',
+    'djangocms-versioning~=2.4',
     'django-haystack~=3.3',
     'django-spurl~=0.6',
     'django-standard-form~=1.1',
