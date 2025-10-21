@@ -26,6 +26,8 @@ CLASSIFIERS = [
     'Framework :: Django',
     'Framework :: Django :: 4.0',
     'Framework :: Django :: 5.0',
+    'Framework :: Django CMS :: 4.1',
+    'Framework :: Django CMS :: 5.0',
     'Programming Language :: Python :: 3',
     'Programming Language :: Python :: 3.10',
     'Programming Language :: Python :: 3.11',
