@@ -38,10 +38,17 @@ We're grateful to all contributors who have helped create and maintain this pack
 Contributors are listed at the `contributors <https://github.com/divio/aldryn-search/graphs/contributors>`_
 section.
 
+Installation
+============
+
+Install aldryn-search through your package manager of choice, e.g.:
+
+``pip install djangocms-aldryn-search``
+
 Usage
 =====
 
-After installing aldryn-search through your package manager of choice, add ``aldryn_search`` to your
+After installing aldryn-search add ``aldryn_search`` to your
 ``INSTALLED_APPS``. If you run a multilingual CMS setup, you have to define a haystack backend for every language
 in use::
 
